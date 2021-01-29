@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>12</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<h1>Список студентов</h1>
+		<p>Лабораторная работа №12. Выполнена с помощью HTML, CSS и 
+			JavaScript, а также фреймворка Vue.js
+		</p>
+		<h2>Форма</h2>
+		<div id="app">
+			<form action="#">
+				<label for="surname">Фамилия</label>
+				<input type="text" id="surname" required v-model="surnameInput">
+				<label for="name">Имя</label>
+				<input type="text" id="name" required v-model="nameInput">
+				<span>Количество знаков: {{ surnameInput.length + nameInput.length }} </span>
+				<button type="button" v-on:click.prevent="dataAdd" v-bind:disabled="btn">Записать</button>
+			</form>
+			<h2>Список</h2>
+			<p v-if="list.length == 0">Список пуст</p>
+			<div v-else>
+				<ol>
+					<li v-for="item in list">{{ item }}</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+	<script src="script.js"></script>
+</body>
+</html>
